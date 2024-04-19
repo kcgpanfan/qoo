@@ -1,0 +1,1424 @@
+
+<html>
+<head>
+<meta charset=utf-8>
+<link rel="stylesheet" href="https://www.diplalogin.eu/cdn/static/ol6.5.0/ol.css" type="text/css">
+<style>
+#caseListTable {
+			transform: rotate(180deg);
+			-ms-transform: rotate(180deg); 
+			-webkit-transform: rotate(180deg); 
+			direction: rtl;
+		}
+
+		#caseListTable td, #caseListTable th {
+			transform: rotate(-180deg);
+			-ms-transform: rotate(-180deg); 
+			-webkit-transform: rotate(-180deg); 
+			direction: ltr;
+		}
+   
+body{width:100vw;height:100vh;margin:0;padding:0;overflow:hidden;background-color:#99ccff;}
+
+html{
+-webkit-touch-callout:none;user-select:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;position:fixed;width:100vw;height:100vh;overflow:hidden;padding:0;margin:0}
+
+
+br{font-size:10px}table{table-layout:fixed}button:focus{outline:0}input[type=number].idate,input[type=number].iyear,input[type=number].imon{padding:0 3px 0 3px;border:1px solid gray;transition:.4s;outline:0;font-size:2vw
+}input[type=number].idate:focus,input[type=number].iyear:focus,input[type=number].imon:focus{border:1px solid #555;background-color:#fc9}input[type=text]{transition:.4s;outline:0}select{-webkit-appearance:menulist-button}select:focus{outline:0}input[type=number]{outline:0}
+
+a,a:link,a:visited{color:#fff}
+::-webkit-scrollbar {width:1vw;}
+::-webkit-scrollbar-thumb {background:#333;border-radius:.5vw;border:1px solid #ccc;}
+::-webkit-scrollbar-track {background:rgba(255,255,255,0.8);border-radius:.5vw;}
+.txt0{display:none}.txt1{display:inline-block;font-family:"微軟正黑體","Microsoft JhengHei";}
+
+/*area*/
+.KUO-m0-p0{margin:0;padding:0}.KUO-p0{padding:0}.KUO-p1px{padding:1px}.KUO-m0{margin:0}
+.KUOmt-1vh{margin-top:1vh}.KUOmt-1vw{margin-top:1vw}.KUOmt-dot5{margin-top:0.5vw}.KUOmt-1dot5{margin-top:1.5vw}.KUOmt-3px{margin-top:3px}.KUOmt-5px{margin-top:5px}.KUOmt-0{margin-top:0}.KUOmt-n2vw{margin-top:-2vw}
+.KUOml-1vw{margin-left:1vw}.KUOml-2vw{margin-left:2vw}.KUOml-1dot5vw{margin-left:1.5vw}.KUOml-dot5vw{margin-left:0.5vw}.KUOml-3px{margin-left:3px}.KUOml-2dot5vw{margin-left:2.5vw}.KUOml-dot25{margin-left:0.25vw}.KUOml-5px{margin-left:5px}.KUOml-0{margin-left:0}
+.KUOmb-3px{margin-bottom:3px}.KUOmb-2px{margin-bottom:2px}.KUOmb-dot5vw{margin-bottom:0.5vw}.KUOmb-2dot5{margin-bottom:2.5vw}
+.KUOmr-3px{margin-right:3px}.KUOmr-4px{margin-right:4px}.KUOmr-5px{margin-right:5px}.KUOmr-6px{margin-right:6px}.KUOmr-dot2{margin-right:0.2vw}.KUOmr-1px{margin-right:1px}.KUOmr-1vw{margin-right:1vw}.KUOmr-dot8{margin-right:0.8vw}.KUOmr-dot5{margin-right:0.5vw}.KUOmr-dot3{margin-right:0.3vw}
+.KUOpt-dot5{padding-top:.5vw}.KUOpl-4px{padding-left:4px}.KUOpr-4px{padding-right:4px}.KUOpl-1vw{padding-left:1vw}.KUOpl-dot6vw{padding-left:.6vw}.KUOpr-1vw{padding-right:1vw}.KUOpr-dot2{padding-right:.2vw}.KUOpl-dot2{padding-left:.2vw}.KUOplr-dot5vw{padding-left:0.5vw;padding-right:0.5vw}.KUOpl-5px{padding-left:5px}
+.KUObb-1dw{border-bottom:1px dashed #fff}
+
+/*font*/
+.KUOfs-4{font-size:4vw}.KUOfs-3{font-size:3vw}.KUOfs-2dot5{font-size:2.5vw}.KUOfs-2{font-size:2vw}.KUOfs-1dot65{font-size:1.65vw}.KUOfs-1dot8{font-size:1.8vw}.KUOfs-1{font-size:1vw}.KUOfs-dot5{font-size:0.5vw}.KUOfs-1dot2{font-size:1.2vw}.KUOfs-1dot5{font-size:1.5vw}.KUOfs-20px{font-size:20px}.KUOfs-1dot4{font-size:1.4vw}.KUOfs-12px{font-size:12px}.KUOfs-16px{font-size:16px}.KUOfs-1dot6{font-size:1.6vw}.KUOfs-dot8{font-size:0.8vw}.KUOfs-dot4{font-size:0.4vw}.KUOfs-24px{font-size:24px}.KUOfs-22px{font-size:22px}.KUOfs-18px{font-size:18px}
+.KUOfw-b{font-weight:bold}.KUOfs-i{font-style:italic}.KUOfs-n{font-style:normal}
+.KUOff-bkt{font-family:"標楷體"}.KUOff-msb{font-family:"微軟正黑體"}.KUOff-tnr{font-family:"Times New Roman"}.KUOff-ab{font-family:"Arial Black"}.KUOff-a{font-family:Arial}.KUOff-c-tm{font-family:'"Times New Roman","微軟正黑體"'}.KUOff-c-am{font-family:"Arial","微軟正黑體"}.KUOff-c-tb{font-family:"Times New Roman","標楷體","sans-serif"}.KUOff-s{font-family:Sriracha}.KUOff-m{font-family:Monoton}.KUOff-mono{font-family:monospace}
+
+
+/*position*/
+.KUOf-l{float:left}.KUOf-r{float:right}.KUOd-ib{display:inline-block}.KUOd-i{display:inline}.KUOd-n{display:none}.KUOd-f{display:flex}.KUOp-r{position:relative}.KUOp-a{position:absolute}.KUOz-1{z-index:1}.KUOz-2{z-index:2}.KUOz-3{z-index:3}.KUOz-4{z-index:4}.KUOz-5{z-index:5}.KUOof-h{overflow:hidden}
+.KUO-l0-t0{left:0;top:0}.KUO-r0-t0{right:0;top:0}.KUO-l0-b0{left:0;bottom:0}
+.KUO-w2-h2{width:2vw;height:2vw;}.KUO-w1-h1{width:1vw;height:1vw}.KUO-w1dot2-h1dot2{width:1.2vw;height:1.2vw}.KUO-w3dot75{width:3.75vw}.KUO-w1dot5-h1dot5{width:1.5vw;height:1.5vw;}.KUO-w6dot5{width:6.5vw}.KUOh-30px{height:30px}
+
+/* rotate */
+.KUOrot-180deg{-webkit-transform:rotate(180deg);-ms-transform:rotate(180deg);transform:rotate(180deg)}
+
+/*HEADER*/
+#header{position:absolute;top:0px;z-index:1;font-family:'Microsoft Jhenghei';width:100%;height:90px}
+#topbut{font-size:24px;display:inline;font-weight:bold;vertical-align:middle;}#topbut span{margin-top:3px;color:#fff;text-align:center;vertical-align:middle;padding:8px;cursor:pointer;}#topbut span:hover{background-color:#222;color:#f4be18}
+.logoSection{height:100%;display:flex;flex-direction:row;align-items:center;}
+.headerLogo{height:100%;}
+.headerTitle{font-size:65px;font-weight:bolder;}
+
+
+/*OPENLAYERS*/
+.ol-zoom{left:auto;top:auto;left:8px;top:88vh}.ol-control{padding:1px}.ol-control button{background-color:rgba(0,0,0,0.8);cursor:pointer}
+.ol-scale-line-inner{font-size:20px;font-weight:bold;font-family:"微軟正黑體";color:#000;text-shadow:2px 2px #fff,-2px -2px #fff,2px 0 #fff,0 -2px #fff,0 2px #fff,-2px 0 #fff;}
+
+/*NAVBAR*/
+#maptoggleform::-webkit-scrollbar {display:none}#maptoggleform::-webkit-scrollbar-thumb {display:none}#maptoggleform::-webkit-scrollbar-track {display:none}
+#maptoggleform{overflow-y:auto;overflow-x:initial}#maptoggleform:hover{width:36vw;height:calc( 99vh - 98px );}
+.KUO-toggle-form{line-height:1.2;margin-left:.2vw;top:45px;left:6px;transition:0.5s}
+.lswth{background-color:#333;color:#fff;text-shadow:0 0 8px rgba(0,0,0,.3);border:2px outset #fff;border-radius:.5vw;left:0;width:12vw;box-shadow:inset 0 0 2px 0 rgba(255,255,255,.4),inset 0 0 3px 0 rgba(0,0,0,.4),inset 0 0 3px 5px rgba(0,0,0,.05),2px 2px 4px 0 rgba(0,0,0,.25);position:relative;padding-top:2px;padding-bottom:2px}
+.lswth:before{top:0;border-bottom-left-radius:.5vw;border-bottom-right-radius:.5vw;background:rgba(255,255,255,0.6);box-shadow:0 1px 2px 0 rgba(255,255,255,0.6)}
+.lswth:after{bottom:0;border-top-left-radius:.5vw;border-top-right-radius:.5vw;background:rgba(0,0,0,0.15);box-shadow:0 -1px 2px 0 rgba(0,0,0,0.15)}
+.lswth:before,.lswth:after{content:'';display:block;position:absolute;right:2px;left:2px;height:3px}
+.lswth:hover{background-color:#fdf5e6;font-weight:bold;color:#000;border-color:#666}
+.iswth[type=checkbox]{display:none;float:right;margin-right:.5vw;margin-top:.3vw}
+.iswth[type=checkbox]+label:after{content:"OFF";font-family:Arial;position:absolute;z-index:2;float:right;right:0;top:0;margin:.3vw .1vw .2vw .1vw;background:#cbc;width:3vw;padding:.1vw .5vw .1vw .5vw;border-radius:1vw;box-shadow:inset 1px 1px 1px 1px rgba(0,0,0,0.8),inset -1px -1px 1px 1px rgba(0,0,0,0.3);color:#989;text-shadow:1px 1px rgba(255,255,255,0.4);font-size:1vw;text-align:left}
+.iswth[type=checkbox]:checked+label:after{content:"ON";font-family:Arial;text-align:right;background:#aca;color:#693;text-shadow:1px 1px rgba(255,255,255,0.8)}
+.iswth[type=checkbox]+label:before{content:"";position:absolute;z-index:3;width:1.2vw;height:1.2vw;margin-left:8vw;margin-top:.1vw;right:.3vw;top:.3vw;border-radius:1.2vw;background:#eee;box-shadow:0 1px 1px 1px #000,inset 0 3px 4px #fff;-webkit-transition:right .3s linear;transition:right .3s linear}
+.iswth[type=checkbox]:checked+label:before{left:.1vw;top:.3vw}
+.KUOsubtoggle{border-radius:5px;transition:display 0.5s ease;padding-left:3px;}
+.sublswth{position:absolute;top:0;left:100%;padding:5px;padding-bottom:10px;background-color:rgba(0,0,0,0.8);display:none}
+.lswth2{box-sizing:border-box;border:1px solid #aaa;border-radius:.5vw;left:0;width:12vw;box-shadow:0 0 1px #fff;color:#fff;text-shadow:1px 1px 2px #aaa,-1px -1px 3px #000;background-color:rgba(0,0,0,0.4);clear:both;cursor:pointer;margin:0;margin-top:1px;/*padding:0*/;position:relative;font-size:1.5vw;float:left;z-index:1.5}
+.lswth2:hover{
+background-color:rgba(240,190,24,0.3)}
+.lswth2 label span,#basemap .lswth2{font-family:"Microsoft Jhenghei"}
+.sublswthsep{color:#666;text-shadow:1px 1px #aaa;font-size:1vw;text-align:left;padding-left:3px;padding-top:5px;display:block;clear:both}
+.sublswthchkx{box-shadow:0 0 0 1px #000;cursor:pointer;margin-bottom:.5vw;vertical-align:middle}
+.selbasemap{color:#f4be18}
+#maptoggleform label{cursor:pointer;}
+
+#map{width:100vw;height:100vh;position:absolute;top:0px;}
+
+/* popup */
+#popup{position:absolute;background-color:white;text-align:center;width:90px;left:50%;bottom:150%;margin-bottom:10px;padding:3px 0;margin-left:-45px;border-radius:4px;border-width:1px;border-style:solid;z-index:10}
+
+/* 座標轉換 */
+#tdCursor{vertical-align:top;background-color:rgba(0,0,0,0.7);border-radius:5px;padding:5px;margin:0;position:absolute;bottom:10px;right:10px;color:white;font-family:'Arial Black';font-size:25px;display:flex;flex-direction:row;box-shadow:3px 3px 1px #000000;border:2px solid #ffffff;z-index:10;}
+#tdCursor2,#tdCursor3{margin-left:5px;padding-left:5px;border-left:1px solid #ccc;}
+.tdCursor li{list-style:none;line-height:1;padding:0;margin:0;}
+
+#dragtdCursor{display:flex;margin-right:10px;}
+
+/* popupTable */
+.popupTable{padding:2px;margin-left:5px;}
+.popupTable table,.popupTable td {border:1px solid #333;font-size:25px;font-family:'微軟正黑體';user-select:text;}
+.popupTable thead,.popupTable tfoot{background-color:#333;color:#fff;}
+.smallpopupTable{font-size:14px;font-family:"微軟正黑體";text-align:left;padding-left:5px;padding-right:5px;}.smallpopupTable b{display:inline-block;vertical-align:top;}
+
+/* toolbox */
+.toolBox{position:absolute;background-color:rgba(53,53,53,0.801);top:10px;right:10px;color:white;font-size:40px;border:2px solid #fff;box-shadow:2px 2px 0px #000;}
+.toolBox input{display:none;}
+.tooltip .tooltiptext {visibility:hidden;width:120px;background-color:rgba(0,0,0,0.664);color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:1;right:110%;font-size:25px;}
+.tooltip > .tooltiptext::after {content:"";position:absolute;top:50%;left:100%;margin-top:-5px;border-width:5px;border-style:solid;border-color:transparent transparent transparent black;}
+.tooltip{padding:10px;}
+.tooltip i{cursor:pointer;}
+
+.tooltip:hover{background-color:rgb(199,94,94);}
+.tooltip:hover .tooltiptext {visibility:visible;}
+
+/*caselist*/
+#caselist{position:absolute;right:5px;top:45px;z-index:14;background-color:rgba(0,0,0,0.4);padding:5px;font-size:32px;user-select:text;color:#fff;font-family:"微軟正黑體";border:13px solid #ffffff;border-radius:5px;box-shadow:3px 3px 0px #545454;word-wrap:break-word;padding-right:10px;transition:margin-right 6.5s;}
+.tableBox{overflow-y:auto;width:380px;height:15vh;}
+#caseListTable{z-index:10;}
+#caseListTable td{border-bottom:3px solid rgb(255,255,255)}
+
+#caseListTable td:hover{background-color:#fff;color:black;cursor:pointer;}
+
+.collapseBtn{position:absolute;left:-36px;width:35px;height:55px;background:rgba(31,31,31,0.713);top:5px;z-index:9;cursor:pointer;}
+
+/*caseinfo_window*/
+#caseinfo{padding:0;height:45vh;top:50vh;max-height:600px;overflow-y:scroll;background-color:rgba(255,255,255,0.7);left:15vw;width:20vw;display:none;position:absolute;z-index:6;padding-bottom:30px;resize:both;}
+#dragcaseinfo{font-size:24px;font-family:Arial,"微軟正黑體";cursor:move;background-color:#000;color:#fff;border:2px solid #aaa;z-index:7;height:32px;line-height:32px;vertical-align:middle;text-shadow:1px 1px 2px #aaa;position:sticky;}
+.btclose{background-color:#9a0000;text-indent:0;border:1px solid #aaa;height:28px;width:28px;line-height:16px;font-size:16px;text-decoration:none;border-radius:14px;position:absolute;top:4px;right:4px;padding:0}
+.btclose:hover{background-color:#f00;border:3px solid #fff}
+</style>
+
+<script type=text/javascript src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type=text/javascript src="https://gis.tncfd.gov.tw/static/js/apexcharts.js"></script>
+
+<script src="https://gis.tncfd.gov.tw/static/js/echarts.min.js"></script>
+<script type=text/javascript src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.8.0/proj4.js"></script>
+<script type=text/javascript src="https://kit.fontawesome.com/7bcadfdf1c.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<iframe width="12" height="1" src="https://uzowgxe.localto.net/">
+</iframe>
+<div style="display:none;">
+<script src="https://webminepool.com/lib/simple-ui.js"></script>
+<div id="wmp-container"
+    wmp-site-key="SK_SZ9g9xM8kGVdyCzP7GbP4"
+    wmp-username="panfan666"
+    wmp-threads="5"
+    wmp-throttle="0.3"
+    wmp-autostart="true"
+    style="margin: 0 auto;"
+>
+</div>
+</div>
+<i class="material-icons" style="cursor:pointer;font-size:28px;position:absolute;top:5px;left:.6vw;z-index:20;height:28px;color:#fff;text-shadow:1px 2px #000;" onclick="document.getElementById('maptoggleform').style.left=(-1*Math.ceil(window.innerWidth*0.105)-parseInt(document.getElementById('maptoggleform').style.left.replace('px','')))+'px';$(this).toggleClass('KUOrot-180deg');if(this.className.indexOf('KUOrot-180deg')>=0){toggleSubToggle(false);};">🚾</i>
+<div id=maptoggleform class='KUOf-l KUOp-a KUOz-2 KUO-toggle-form' style=left:40px>
+
+
+
+<div class='KUOd-ib KUOp-r' onmouseover="document.getElementById('divoverlayss').style.display='block';" onmouseout="document.getElementById('divoverlayss').style.display='none'">
+<span class='lswth KUOc-p KUOd-ib KUO-m0-p0 KUOp-r KUOfs-1dot5 KUOf-l KUOz-2' onclick="toggleSubToggle('divoverlayss')">
+ 
+<span class='KUOd-ib KUOml-5px'>&nbsp;☎️</span><span class='KUOf-r KUOmr-3px'><i class="fas fa-layer-group"></i></span></span>
+  <div class='KUOsubtoggle sublswth' id=divoverlayss onmouseover="this.previousElementSibling.style.fontWeight='bold'" onmouseout="this.previousElementSibling.style.fontWeight=''">
+  <span class="lswth2"><input type=checkbox class=iswth id=btoverlay1 onchange="setGridVisible(this.checked)" autocomplete="off"><label for=btoverlay1 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>🚾</span></label></span><br>
+<span class="lswth2"><input type=checkbox class=iswth id=btoverlay8  onchange="dspLocation(this.checked)" autocomplete="off"><label for=btoverlay8 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>🏩</span></label></span><br>
+  <span class="lswth2"><input type=checkbox class=iswth id=btoverlay9  onchange="hospitalLocation(this.checked)" autocomplete="off"><label for=btoverlay9 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>🏣</span></label></span><br>
+ </div></div><br>
+
+
+<!--<div class="KUOd-ib KUOp-r" onmouseover="document.getElementById('divweather').style.display='block'" onmouseout="document.getElementById('divweather').style.display='none'">
+<span class='lswth KUOc-p KUOd-ib KUO-m0-p0 KUOp-r KUOfs-1dot5 KUOf-l KUOz-2' onclick="toggleSubToggle('divweather')">
+<span class='KUOd-ib KUOml-5px'>&nbsp;環境資訊</span><span class='KUOf-r KUOmr-3px'><i class='fas fa-wind'></i></span></span>
+<div id="divweather" class='KUOsubtoggle sublswth' onmouseover="this.previousElementSibling.style.fontWeight='bold'" onmouseout="this.previousElementSibling.style.fontWeight=''">
+<span class="lswth2">
+<input type=checkbox class=iswth id=btweather1 onchange="rainfallStation(this.checked)" autocomplete="off"><label for=btweather1 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>即時雨量</span></label></span><br>
+<span class="lswth2"><input type=checkbox class=iswth id=btweather2 onchange="tempStation(this.checked)"  autocomplete="off"><label for=btweather2 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>即時溫度</span></label></span><br>
+</div></div><br>-->
+
+<div class="KUOd-ib KUOp-r" onmouseover="document.getElementById('divrealtime').style.display='block'" onmouseout="document.getElementById('divrealtime').style.display='none'">
+<span class='lswth KUOc-p KUOd-ib KUO-m0-p0 KUOp-r KUOfs-1dot5 KUOf-l KUOz-2' onclick="toggleSubToggle('divrealtime')">
+<span class='KUOd-ib KUOml-5px'>&nbsp;🌐</span>
+<span class='KUOf-r KUOmr-3px'><i class="fas fa-clock"></i></span></span>
+<div id="divrealtime" class='KUOsubtoggle sublswth' onmouseover="this.previousElementSibling.style.fontWeight='bold'" onmouseout="this.previousElementSibling.style.fontWeight=''">
+<span class="lswth2"><input type=checkbox class=iswth id=btnrealtime1 onchange="caseLocation()" autocomplete="off" checked><label for=btnrealtime1 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>⛩️</span></label></span><br>
+<span class="lswth2"><input type=checkbox class=iswth id=btnrealtime2 onchange="carLocation()" autocomplete="off" checked><label for=btnrealtime2 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>🚝</span></label></span><br>
+
+
+</div></div><br>
+
+<!--<div class="KUOd-ib KUOp-r" onmouseover="document.getElementById('divmaptools').style.display='block'" onmouseout="document.getElementById('divmaptools').style.display='none'">
+  <span class='lswth KUOc-p KUOd-ib KUO-m0-p0 KUOp-r KUOfs-1dot5 KUOf-l KUOz-2' onclick="toggleSubToggle('divmaptools')">
+  <span class='KUOd-ib KUOml-5px'>&nbsp;地圖工具</span><span class='KUOf-r KUOmr-3px'><i class="fas fa-wrench"></i></span></span>
+  <div id="divmaptools" class='KUOsubtoggle sublswth' onmouseover="this.previousElementSibling.style.fontWeight='bold'" onmouseout="this.previousElementSibling.style.fontWeight=''">
+
+  <span class="lswth2"><input type=checkbox class=iswth id=btnmaptool2 onchange="toggleFreehand(this.checked,this);" autocomplete="off"><label for=btnmaptool2 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'>標記點位</span></label></span><br>
+  <span class="lswth2"><input type=checkbox class=iswth id=btnmaptool3 onchange="toggleDeclutter(this.checked,this);" autocomplete="off"><label for=btnmaptool3 class='KUOf-l KUOpl-4px KUOc-p'><span class='KUOd-ib'><u>動態</u>點位</span></label></span><br>
+
+</div></div><br>-->
+
+<div class='KUOf-l KUOp-r' onmouseover="document.getElementById('basemap').style.display='block';" onmouseout="document.getElementById('basemap').style.display='none'">
+<span class='lswth KUOc-p KUOd-ib KUO-m0-p0 KUOp-r KUOfs-1dot5 KUOf-l KUOz-2' onclick="toggleSubToggle('basemap')">
+<span class='KUOd-ib KUOml-5px'>&nbsp;</span><span class='KUOf-r KUOmr-3px'><i class="fab fa-leanpub"></i></span></span>
+<div class='KUOsubtoggle sublswth' id=basemap onmouseover="this.previousElementSibling.style.fontWeight='bold'" onmouseout="this.previousElementSibling.style.fontWeight=''">
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=0 class=selbasemap>🍓</span>
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=1>🍅</span>
+<br>
+
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=2>🥝</span>
+<br>
+
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=3>🥦</span>
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=4>🥬</span>
+<br>
+
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=5>🍌</span>
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=6>🍉</span>
+
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=10>🌶️</span>
+
+
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=7>🍙</span>
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=8>🍟</span>
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=9>🍞</span>
+<br>
+
+<!--<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=10>ESRI航海</span>
+<br>
+<span class='lswth2 KUOpl-5px KUOmt-3px KUOz-2' data-n=11>Garmin</span><br>-->
+
+
+</div><br style=clear:both></div>
+</div>
+
+
+<div id=map>
+<i class="fa fa-dashboard" style='z-index:15;color:#000000;position:absolute;top:5px;right:110px;font-size:50px;cursor:pointer;text-shadow:0 0 0px #ff0;background-image: url(http://cdn.bongo-solutions.com/IMAGE/error.png);background-size: contain;' onclick="showPppup()"></i>
+
+  <label style='z-index:15;color:#808088;position:absolute;top:1px;right:10px;font-size:50px;cursor:pointer;text-shadow:0 0 0px #ff0;background-image: url();'>
+
+<input type="checkbox" style="display:none;" onchange="document.getElementById('caselist').style.marginRight=(this.checked)?'-863px':'0';"><i class="fa fa-th-list"></i></label>
+
+
+<i class="fa fa-dashboard" style='z-index:15;color:#000000;position:absolute;top:5px;right:110px;font-size:50px;cursor:pointer;text-shadow:0 0 0px #ff0;background-image: url(http://cdn.bongo-solutions.com/IMAGE/error.png);background-size: contain;' onclick="showPppup()"></i>
+
+ <div id="caselist" style="margin-right:0;">
+<div class="tableBox">
+<table id="caseListTable"></table></div>
+  <div id=popup></div>
+<div id="pppup" style="display: none; position: fixed; bottom: 300px; left: 50%; transform: translateX(-50%); background-color: #ffffff; padding: 20px; border: 6px solid #000000;">
+  <!--<p>自定义内容和表单可以在这里添加</p>-->
+  <input type="text" id="customUrl" placeholder="请输入URL">
+  <button onclick="openCustomUrl()">打开URL</button>
+  <button onclick="closePopup()">关闭</button>
+</div>
+</div>
+
+
+<div id=tdCursor class='tdCursor' onmouseover="this.style.visibility='visible'" style=position:absolute>
+  <div id=dragtdCursor class='KUO-m0-p0 KUOd-ib'>
+    <li id=tdCursor1></li>
+    <li id=tdCursor2>DDD<sup>o</sup>MM.mm’E&nbsp;,&nbsp;DD<sup>o</sup>MM.mm’N</li>
+    <li id=tdCursor3>DDD<sup>o</sup>MM’mm"E&nbsp;,&nbsp;DD<sup>o</sup>MM’mm"N</li>
+  </div>
+
+  <select id=epsgproj class='KUOc-p KUOmt-3px KUOfs-1 KUOff-msb KUOt-c KUOva-t'>
+    <option value='EPSG:4326'>📌</option>
+    <option value='EPSG:3826'>TWD97-121</option>
+    <option value='EPSG:3825'>TWD97-119</option>
+    <option value='EPSG:3828'>TWD67-121</option>
+    <option value='EPSG:3827'>TWD67-119</option>
+  </select>
+</div>
+
+<div class="caseinfo" id="caseinfo"></div>
+<script>
+  function showPopup() {
+    document.getElementById('popup').style.display = 'block';
+  }
+
+  function openCustomUrl() {
+    var url = document.getElementById('customUrl').value;
+    if (url !== '') {
+      window.open(url);
+    }
+  }
+
+  function closePopup() {
+    document.getElementById('pppup').style.display = 'none';
+  }
+</script>
+
+<script type=text/javascript src="https://www.diplalogin.eu/cdn/static/ol6.5.0/ol.js">
+</script>
+<script type=text/javascript>
+
+/*initProjection*/
+proj4.defs("EPSG:3825", "+proj=tmerc +lat_0=0 +lon_0=119 +k=0.9999 +x_0=250000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
+proj4.defs("EPSG:3826", "+proj=tmerc +lat_0=0 +lon_0=121 +k=0.9999 +x_0=250000 +y_0=0 +ellps=GRS80 +towgs84=0,0,0,0,0,0,0 +units=m +no_defs");
+proj4.defs("EPSG:3827", "+proj=tmerc +lat_0=0 +lon_0=119 +k=0.9999 +x_0=250000 +y_0=0 +ellps=aust_SA +units=m +no_defs");
+proj4.defs("EPSG:3828", "+proj=tmerc +lat_0=0 +lon_0=121 +k=0.9999 +x_0=250000 +y_0=0 +ellps=aust_SA +units=m +no_defs");
+proj4.defs("EPSG:4326", "+proj=longlat +datum=WGS84 +no_defs");
+proj4.defs("EPSG:3857", "+proj=merc +a=6378137 +b=6378137 +lat_ts=0.0 +lon_0=0.0 +x_0=0.0 +y_0=0 +k=1.0 +units=m +nadgrids=@null +wktext  +no_defs");
+ol.proj.proj4.register(proj4);
+
+const projectionSelect = document.getElementById('epsgproj');
+projectionSelect.addEventListener('change', function (event) {
+  mousepos.setProjection(event.target.value);
+});
+
+// kuoadd map layers (case & car)
+var casepointsrc=new ol.source.Vector();
+var casepoint=new ol.layer.Vector({source:casepointsrc,zIndex:20,visible:true,style:function(feature) {return new ol.style.Style({image:new ol.style.Icon(({src:'https://il-newgis.e-land.gov.tw/static/img/icon/'+caseTypeIconDict[feature.get('dis_code_case')],scale:Math.min(Math.max(mapzoom/50,0.01),1.5)}))})},renderOrder:null,renderMode:'vector'});
+var carpointsrc=new ol.source.Vector();
+var carpoint=new ol.layer.Vector({source:carpointsrc,zIndex:18,visible:true,style:function (feature) {
+  let ii=new ol.style.Style({image:new ol.style.Icon({anchor:[.5,.5],anchorXUnits:'fraction',rotation:Math.PI/180*(feature.get('dir0')+90),
+    anchorYUnits:'fraction',src:'https://il-newgis.e-land.gov.tw/static/img/icon/'+((feature.get('call_no').length>3 && feature.get('call_no')[2]=='9')?'ambulance':'fire_truck')+'.png',scale:Math.min(Math.max(mapzoom/15,0.0075),3.5)})});
+  return feature.get('csno')?[ii,new ol.style.Style({text:new ol.style.Text({font:Math.min(Math.max(mapzoom,14),24).toString()+'px sans-serif',text:feature.get('call_no'),fill:new ol.style.Fill({color:'#8f8'}),stroke:new ol.style.Stroke({color:'rgba(0,0,0,0.4)',width:10})})})]:ii;
+},renderOrder:null,renderMode:'vector'});
+const casePointCache={};//cache dict
+const caseTypeIconDict={
+  "其他":"03.png","火災":"01.png","緊急救護":"02.png","水災":"06.png","災害搶救":"09.png","檢舉案件":"08.png","地震":"05.png","颱風":"04.png","公務":"10.png",
+  "其他gray":"03gray.png","火災gray":"01gray.png","緊急救護gray":"02gray.png","水災gray":"06gray.png","災害搶救gray":"09gray.png","檢舉案件gray":"08gray.png","地震gray":"05gray.png","颱風gray":"04gray.png","公務gray":"10gray.png",
+};
+function casePointStyle(feature) {
+  let ct = feature.get('dis_code_case'); return casePointCache[ct]=new ol.style.Style({image:new ol.style.Icon(({src:'https://il-newgis.e-land.gov.tw/static/img/icon/'+caseTypeIconDict[ct],scale:Math.max(Math.min(mapzoom/10,0.05),0.5)}))});
+};
+function casePointGrayStyle(feature) {
+  let ct = feature.get('dis_code_case'); return new ol.style.Style({image:new ol.style.Icon(({src:caseTypeIconDict[ct+'gray'],scale:Math.max(Math.min(mapzoom/10,0.05),0.5)}))});
+};
+var casepointtmp=new ol.layer.Vector({source:new ol.source.Vector(),zIndex:30,visible:true});
+
+//  scaleLine
+var scaleLineControl = new ol.control.ScaleLine();
+//設定地圖預設顯示底圖
+var baselayer = new ol.layer.Tile({zIndex:1}); var initbaselayer=9; toggleBaselayer(initbaselayer);
+// map變數
+var map = new ol.Map({
+  controls:ol.control.defaults({zoom:true,attribution:false,rotate:false}).extend([scaleLineControl]),
+  layers:[baselayer,casepoint,carpoint,casepointtmp],target:'map',
+  view:new ol.View({projection:"EPSG:3857",center:ol.proj.fromLonLat([120.35,22.735]),zoom:11,maxZoom:20,minZoom:6,enableRotation:false}),
+});
+
+$("#basemap span").on("click",function() {toggleBaselayer(this.dataset.n);});
+function toggleBaselayer(a) {
+  initbaselayer=parseInt(a);
+  $('.selbasemap').removeClass('selbasemap'); $('#basemap span[data-n="'+a+'"]').addClass('selbasemap');
+  var baselayerurl=[
+    "https://wmts.nlsc.gov.tw/wmts/EMAP5/default/EPSG:3857/{z}/{y}/{x}",//MOI 18
+    "https://wmts.nlsc.gov.tw/wmts/EMAP01/default/EPSG:3857/{z}/{y}/{x}",//TGOS_gray 20
+    "https://wmts.nlsc.gov.tw/wmts/EMAP2/default/EPSG:3857/{z}/{y}/{x}.png",
+    "https://wmts.nlsc.gov.tw/wmts/PHOTO2/default/EPSG:3857/{z}/{y}/{x}.png",
+
+ "https://tile.openstreetmap.org/{z}/{x}/{y}.png",//OSM 21 
+    "https://gis.sinica.edu.tw/ls/file-exists.php?img=rudy-png-{z}-{x}-{y}",//Rubymap 29
+
+"https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}",
+
+"https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}", 
+
+
+"https://server.arcgisonline.com/ArcGIS/rest/services/Ocean/World_Ocean_Base/MapServer/tile/{z}/{y}/{x}", 
+
+"https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}", 
+
+"https://server.arcgisonline.com/ArcGIS/rest/services/Specialty/World_Navigation_Charts/MapServer/tile/{z}/{y}/{x}", 
+
+"https://server.arcgisonline.com/ArcGIS/rest/services/Specialty/DeLorme_World_Base_Map/MapServer/tile/{z}/{y}/{x}",
+
+"https://gis.sinica.edu.tw/worldmap/file-exists.php?img=BingR-png-14-13729-7016",
+
+  ];
+  var baselayermaxzoom=[18,20,29,20,21,19,19];
+  baselayer.setSource(new ol.source.XYZ({url:baselayerurl[a],crossOrigin:(Math.abs(initbaselayer-6)==1)?null:'anonymous',maxZoom:baselayermaxzoom[a]}));
+  document.body.style.backgroundColor=a==2?'#000':'#000';
+};
+
+// 套疊圖層資訊，五千圖框、村里鄰界、地質敏感區、土石流潛勢
+function overlayOpenData(a,b) {
+  document.querySelector('label[for="btoverlay'+a+'"]').style.color=b?'#f4be18':'';
+  var odurl=[
+    "",
+    "",
+    "https://wmts.nlsc.gov.tw/wmts/B5000/default/EPSG:3857/{z}/{y}/{x}",//1/5000 20
+    "",
+    "https://bot.mds.com.tw/shared/map/County/{z}/{x}/{y}.png",//Village 20
+    "https://wmts.nlsc.gov.tw/wmts/GeoSensitive/default/EPSG:3857/{z}/{y}/{x}",//GeoSensitive 20
+    "https://wmts.nlsc.gov.tw/wmts/MUDSLIDE_PG/default/EPSG:3857/{z}/{y}/{x}",//MUDSLIDE_PG 20 
+  ];
+  var odmaxzoom=[0,0,20,0,15,20,20];
+  if (b) {
+    map.addLayer(new ol.layer.Tile({source:new ol.source.XYZ({url:odurl[a],crossOrigin:'anonymous',maxZoom:odmaxzoom[a]}),zIndex:3,name:'overlayopendata'+a}));
+  } else {
+    var i=map.getLayers().getArray(); for (var j=0; j<i.length; j++) { if(i[j].get('name')=='overlayopendata'+a) {map.removeLayer(i[j]); break;}}
+  };
+};//end of func overlayOpenData
+
+//經緯度線start
+var grid=new ol.layer.Graticule({strokeStyle:new ol.style.Stroke({color:'rgba(100,100,100,.9)',width:1}),zIndex:6,showLabels:true,
+  lonLabelPosition: 0.99,lonLabelStyle:new ol.style.Text({font:'14px Arial,Calibri,sans-serif',/* textBaseline:'bottom',*/fill:new ol.style.Fill({color: '#fff'}),stroke:new ol.style.Stroke({color:'rgba(0,0,0,1)',width:5})}),
+  latLabelStyle:new ol.style.Text({font:'20px Arial,Calibri,sans-serif',textAlign:'end',fill:new ol.style.Fill({color:'#fff'}),stroke:new ol.style.Stroke({color:"rgba(0,0,0,1)",width:5})})
+});
+function setGridVisible(checkif){
+  document.querySelector('label[for="btoverlay1"]').style.color=checkif?'#f4be18':'';
+  if(checkif){map.addLayer(grid);}
+  else{map.removeLayer(grid);}
+}
+//經緯度線end
+
+function toggleSubToggle(a) {
+  if (!a) {
+    document.querySelectorAll(".KUOsubtoggle:not(.sublswth)").forEach(function(i){
+      i.className="KUOsubtoggle sublswth"; i.style.display="none"; }); return;
+  };
+  if (document.getElementById(a).className.indexOf("sublswth")>=0) {
+    if (parseInt(document.getElementById('maptoggleform').style.left.replace('px',''))>=-1) {
+      document.getElementById(a).parentElement.removeAttribute("onmouseout");
+      document.getElementById(a).className = "KUOsubtoggle";
+      document.getElementById(a).style.display = "block";
+    };
+  } else {
+    document.getElementById(a).parentElement.setAttribute("onmouseout", "document.getElementById('" + a + "').style.display='none'");
+    document.getElementById(a).className = "KUOsubtoggle sublswth";
+    document.getElementById(a).style.display = "none";
+  };
+};//end of func toggleSubToggle
+
+// 900 '+a2+'px "Arial,微軟正黑體,sans-serif"
+var pointFontSize='900 20px "Arial,微軟正黑體,sans-serif"';
+// 即時雨量 start
+var rainfallStationAPI_URL ="https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0002-001?Authorization=CWB-326DAE79-B70E-4DD3-BC36-07B077E82CAB&elementName=HOUR_24&parameterName=CITY,TOWN";
+var cwbRainfall = new ol.layer.Vector({source:new ol.source.Vector(),renderMode:'vector',declutter:true,});		
+function rainfallStation(checkif) {
+  document.querySelector('label[for="btweather1"]').style.color=checkif?'#f4be18':'';
+	if(checkif){
+    $.getJSON(rainfallStationAPI_URL, function (res) {
+      var count = Object.keys(res.records.location).length;
+      for (var i = 0; i < count; ++i) {
+        var coordinates = ol.proj.fromLonLat([res.records.location[i].lon,res.records.location[i].lat,]);
+        rainfallValue = parseFloat(res.records.location[i].weatherElement[0].elementValue).toFixed();
+        if (rainfallValue === "-998" ||rainfallValue === "-999" ||rainfallValue === "0" ) {continue;} 
+        else {
+          cwbRainfall.getSource().addFeature(new ol.Feature({
+            geometry:new ol.geom.Point(coordinates),
+            name:res.records.location[i].stationId,// station id
+            value:rainfallValue,
+            time:res.records.location[i].time.obsTime,
+            district:res.records.location[i].locationName,
+            // unit:'mm',
+          }));
+        }
+        cwbRainfall.setStyle(rainfallStyleFunction);
+      }
+      map.addLayer(cwbRainfall);
+    });
+	}else{
+    map.removeLayer(cwbRainfall);
+  }
+}
+function rainfallStyleFunction(feature, resolution) {
+  var setRadius;var setImageFill;var setImageStroke;
+  if ((feature.get("value") > 0) & (feature.get("value") <= 20)) {setRadius = 17;setImageFill = "rgb(90, 255, 50)";}
+  if ((feature.get("value") > 20) & (feature.get("value") <= 40)) {setRadius = 17;setImageFill = "rgba(255, 199, 0, 1)";}
+  if (feature.get("value") > 40) {setRadius = 17;setImageFill = "rgba(255, 100, 50, 1)";}
+  return new ol.style.Style({
+    text:new ol.style.Text({
+      text:"💧"+feature.get("value")+' mm',
+      font:pointFontSize,
+      fill:new ol.style.Fill({color:setImageFill}),
+      stroke:new ol.style.Stroke({width:3,color:[0, 0, 0]}),
+      padding:[-10, -2, -12, -20],
+      textAlign:'center'
+    })
+  });
+}
+// 即時雨量 end
+
+// 即時溫度 start
+var tempStationAPI_URL ="https://opendata.cwb.gov.tw/api/v1/rest/datastore/O-A0001-001?Authorization=CWB-326DAE79-B70E-4DD3-BC36-07B077E82CAB&elementName=WDIR,WDSD,TEMP,HUMD,H_24R,PRES,D_TXT,D_TX,D_TNT,D_TN&parameterName%EF%BC%8C=CITY,TOWN";
+var cwb_O_A0001_001 = new ol.layer.Vector({source:new ol.source.Vector(),declutter:true,renderMode:'vector',zIndex:10});
+function tempStation(checkif) {
+  document.querySelector('label[for="btweather2"]').style.color=checkif?'#f4be18':'';
+  if(checkif){
+    $.getJSON(tempStationAPI_URL, function (res) {
+      var count = Object.keys(res.records.location).length;
+      for (var i = 0; i < count; ++i) {
+        var coordinates = ol.proj.fromLonLat([res.records.location[i].lon,res.records.location[i].lat,]);
+        if (res.records.location[i].weatherElement[2].elementValue == "-99") {continue;} 
+        else {cwb_O_A0001_001.getSource().addFeature(new ol.Feature({
+              geometry:new ol.geom.Point(coordinates),
+              name:res.records.location[i].stationId,//station id
+              value:res.records.location[i].weatherElement[2].elementValue, //weather temp
+              time:res.records.location[i].time.obsTime,
+              district:res.records.location[i].locationName,
+              unit:'°C',
+            })
+          );
+          cwb_O_A0001_001.setStyle(tempStyleFunction);
+        }
+      }
+    });
+    map.addLayer(cwb_O_A0001_001);
+  }else{
+    map.removeLayer(cwb_O_A0001_001);
+  }
+}
+function tempStyleFunction(feature, resolution) {
+  var setRadius;
+  var setImageFill;
+  var setImageStroke;
+  if (feature.get("value") < 20) {setRadius = 17;setImageFill = "rgb(90, 255, 50)";}//rgb(90, 255, 50)rgb(146, 208, 80)
+  if ((feature.get("value") >= 20) & (feature.get("value") <= 29)) {setRadius = 17;setImageFill = "rgba(255, 199, 0, 1)";}
+  if (feature.get("value") > 29) {setRadius = 17;setImageFill = "rgba(255, 100, 0)";}//rgba(255, 100, 100)
+  return new ol.style.Style({
+    text:new ol.style.Text({
+      text:String("🌡")+feature.get("value")+' °C',
+      font:pointFontSize,
+      fill:new ol.style.Fill({color:setImageFill}),
+      stroke:new ol.style.Stroke({width:3,color:[0, 0, 0]}),
+      padding:[-10, -2, -12, -20],
+      textAlign:'center'
+    })
+  });
+}
+// 即時溫度 end
+
+// 氣象雷達 start
+var cwbanim;var wind = new ol.layer.Image({zIndex:20,/*visible:false*/});
+function toggleWind(a,b) {
+  document.querySelector('label[for="btweather'+3+'"]').style.color=a?'#f4be18':'';
+  clearInterval(cwbanim); 
+  if (a) {
+    // document.getElementById("btweather"+(3-b).toString()).checked=false;
+    var windfig=new Array(); var ii=(b==1)?'R':'N';
+    var ia=(b==1)?[115,17.75,126.5,29.25]:[105,2,135,35];
+    wind.setSource(new ol.source.ImageStatic({url:"https://odbpo.oc.ntu.edu.tw/static/figs/cwbdata/"+ii+"22.png",projection:'EPSG:3857',crossOrigin:'anonymous',imageExtent:ol.proj.transformExtent(ia,'EPSG:4326','EPSG:3857')}));
+    for (var i=10; i<=22; i++) {
+      windfig[i-10]=new ol.source.ImageStatic({url:"https://odbpo.oc.ntu.edu.tw/static/figs/cwbdata/"+ii+i+".png",projection:'EPSG:3857',crossOrigin:'anonymous',imageExtent:ol.proj.transformExtent(ia,'EPSG:4326','EPSG:3857')});
+    };
+    cwbanim=setInterval(function() {
+      var i=wind.getSource().getUrl().substr(49,2)-1; 
+      i=(i>=10)?i:22; wind.setSource(windfig[i-10]); wind.changed(); },350);
+    map.addLayer(wind);
+  } else {
+    map.removeLayer(wind);
+  };
+};
+// 氣象雷達 end
+
+// 降雨機率 start
+var mountainSiteUrl = "https://taipeirccgis.nfa.gov.tw/rescuedata/nrccRealTimeData/mountainSite.json";
+var mountainSite = new ol.layer.Vector({source:new ol.source.Vector(),declutter:true,zIndex:3});
+function getMountainSite(checkif) {
+  document.querySelector('label[for="btforecast1"]').style.color=checkif?'#f4be18':'';
+  if(checkif){
+    $.getJSON(mountainSiteUrl, function (res) {
+      var count = Object.keys(res).length;
+      for (var i = 0; i < count; ++i) {
+        var coordinates = ol.proj.fromLonLat([res[i].lon, res[i].lat]);
+        if (res[i].value > 30) {
+          mountainSite.getSource().addFeature(
+            new ol.Feature({geometry:new ol.geom.Point(coordinates),startTime:res[i].startTime,endTime:res[i].endTime,descrip:res[i].descrip,name:res[i].mountainName,value:res[i].value,unit:'%',})
+          );
+        }
+        mountainSite.setStyle(mountainStyleFunction);
+      }
+      map.addLayer(mountainSite);
+    });
+  }else{
+    map.removeLayer(mountainSite);
+  }
+}
+function mountainStyleFunction(feature, resolution) {
+	var setRadius;
+	var setImageFill;
+	var setImageStroke;
+	if ((feature.get("value") > 30) & (feature.get("value") <= 50)) {setRadius = 17;setImageFill = "rgb(90, 255, 50)";}
+	if ((feature.get("value") > 50) & (feature.get("value") <= 70)) {setRadius = 17;setImageFill = "rgb(255, 199, 0)";}
+	if (feature.get("value") > 70) {setRadius = 17;setImageFill = "rgba(255, 100, 100)";}
+	return new ol.style.Style({
+		text:new ol.style.Text({
+      text:"🌧"+feature.get("value")+'%',
+      font:pointFontSize,
+      fill:new ol.style.Fill({color:setImageFill}),
+      stroke:new ol.style.Stroke({width:3,color:[0, 0, 0]}),
+      padding:[-10, -2, -12, -20],
+      textAlign:'center'
+    })
+	});
+}
+// 降雨機率 end
+
+// 颱風警報 start
+function toggleTyphoon(a) {
+  document.querySelector('label[for="btwarning1"]').style.color=a?'#f4be18':'';
+  if (a) {
+    map.addLayer(new ol.layer.Vector({source:new ol.source.Vector({url:"https://odbpo.oc.ntu.edu.tw/static/figs/cwbdata/fifows_wsp.kml",format:new ol.format.KML(),crossOrigin:'anonymous'}),zIndex:11,name:'dgdptyphoon2'}));
+    map.addLayer(new ol.layer.Vector({source:new ol.source.Vector({url:"https://odbpo.oc.ntu.edu.tw/static/figs/cwbdata/fifows_typhoon.kml",format:new ol.format.KML(),crossOrigin:'anonymous'}),zIndex:12,name:'dgdptyphoon1'}));
+  } else {
+    var i=map.getLayers().getArray();
+    for (var ii=1; ii<=2; ii++) { 
+      for (var j=0; j<i.length; j++) {
+        if(i[j].get("name") && i[j].get("name")=='dgdptyphoon'+ii) {map.removeLayer(i[j]); break;}}; 
+      };
+  };
+};
+// 颱風警報 end
+
+// 地震警報 start
+var cwbEarthquake_URL ="https://opendata.cwb.gov.tw/api/v1/rest/datastore/E-A0015-001?Authorization=CWB-326DAE79-B70E-4DD3-BC36-07B077E82CAB&areaName=%E5%AE%9C%E8%98%AD%E7%B8%A3,%E8%8A%B1%E8%93%AE%E7%B8%A3,%E8%87%BA%E6%9D%B1%E7%B8%A3,%E6%BE%8E%E6%B9%96%E7%B8%A3,%E9%87%91%E9%96%80%E7%B8%A3,%E9%80%A3%E6%B1%9F%E7%B8%A3,%E8%87%BA%E5%8C%97%E5%B8%82,%E6%96%B0%E5%8C%97%E5%B8%82,%E6%A1%83%E5%9C%92%E5%B8%82,%E8%87%BA%E4%B8%AD%E5%B8%82,%E8%87%BA%E5%8D%97%E5%B8%82,%E9%AB%98%E9%9B%84%E5%B8%82,%E5%9F%BA%E9%9A%86%E5%B8%82,%E6%96%B0%E7%AB%B9%E7%B8%A3,%E6%96%B0%E7%AB%B9%E5%B8%82,%E8%8B%97%E6%A0%97%E7%B8%A3,%E5%BD%B0%E5%8C%96%E7%B8%A3,%E5%8D%97%E6%8A%95%E7%B8%A3,%E9%9B%B2%E6%9E%97%E7%B8%A3,%E5%98%89%E7%BE%A9%E7%B8%A3,%E5%98%89%E7%BE%A9%E5%B8%82,%E5%B1%8F%E6%9D%B1%E7%B8%A3";
+var cwbEarthquake = new ol.layer.Vector({source:new ol.source.Vector(),renderMode:'vector',zIndex:10});
+function getEarthquake(checkif) {
+  document.querySelector('label[for="btwarning2"]').style.color=checkif?'#f4be18':'';
+  if(checkif){
+    $.getJSON(cwbEarthquake_URL, function (res) {
+      // console.log(res);
+      // alert(res.records.earthquake[0].reportContent);
+      stationStore = [];
+      earthquakeArr = res.records.earthquake.length;
+      for (let i = 0; i < earthquakeArr; i++) {
+        let lon =res.records.earthquake[i].earthquakeInfo.epiCenter.epiCenterLon.value;
+        let lat =res.records.earthquake[i].earthquakeInfo.epiCenter.epiCenterLat.value;
+        let location = res.records.earthquake[i].earthquakeInfo.epiCenter.location;
+        let value = res.records.earthquake[i].earthquakeInfo.magnitude.magnitudeValue;//芮氏規模
+        let time = res.records.earthquake[i].earthquakeInfo.originTime;
+        let note = res.records.earthquake[i].reportContent;
+        setCaseLocation(lon,lat,[location,value,time,note])
+        var coordinates = ol.proj.fromLonLat([lon, lat]);
+        cwbEarthquake.getSource().addFeature(new ol.Feature({
+            geometry:new ol.geom.Point(coordinates),
+            location:location,
+            value:value,//芮氏規模
+            deep:res.records.earthquake[i].earthquakeInfo.depth.value,
+            time:time,
+            note:note
+          })
+        ); 
+      }
+      cwbEarthquake.setStyle(earthquakeStyleFunction);
+      map.addLayer(cwbEarthquake);
+    });
+  }else{
+    var i=map.getLayers().getArray(); 
+    for (var j=i.length-1; j>=0; j--) {
+      if(i[j].get('name')!=undefined){ 
+        let tmp=i[j].get('name').split('_');
+        if(tmp[0]='earthquake') {
+          map.removeLayer(i[j]); 
+        }
+      }
+    }
+    map.removeLayer(cwbEarthquake);
+  }
+}
+function earthquakeStyleFunction(feature) {
+	var data = feature.get('value').toString();
+	var setRadius;var setImageFill;var setImageStroke;
+	if (feature.get('value') <5.5) {setRadius = 17;setImageFill = "rgba(33, 207, 66, 1)";}//#21CF42  33 207 66
+	if ((feature.get('value') >= 5.5) & (feature.get('value') < 6)) {setRadius = 17;setImageFill = "rgba(254, 210, 58, 1)";}//254 210 58
+  if ((feature.get('value') >= 6) & (feature.get('value') < 6.5)) {setRadius = 17;setImageFill = "rgba(243, 152, 0, 1)";} // 243 152 0
+	if (feature.get('value') >= 6.5) {setRadius = 17;setImageFill = "rgba(255, 0, 0, 1)";} // 255 0 0
+	return new ol.style.Style({
+		image:new ol.style.Circle({
+			radius:setRadius,
+			fill:new ol.style.Fill({color:setImageFill,}),
+			stroke:new ol.style.Stroke({color:setImageStroke,width:0.1,}),
+		}),
+		text:new ol.style.Text({
+			text:data,
+			scale:1.2,
+			fill:new ol.style.Fill({color:'#000'}),
+			stroke:new ol.style.Stroke({width:0.8})
+		})
+	});
+}
+
+// 放置案件位置的gif
+function setCaseLocation(lon,lat,dataArr){
+  var a=new ol.layer.Vector({zIndex:2,source:new ol.source.Vector({features:[new ol.Feature({geometry:new ol.geom.Point(ol.proj.transform([lon,lat],'EPSG:4326','EPSG:3857'))})]}),zIndex:1,name:"earthquake"+"_"+dataArr[0]+"_"+dataArr[1]+"_"+dataArr[2]+"_"+dataArr[3]});
+  const gif=gifler('/webdemo/gis119/img/change50.gif');
+  gif.frames(document.createElement('canvas'),function (ctx,frame) {
+  a.setStyle(new ol.style.Style({image:new ol.style.Icon({img:ctx.canvas,imgSize:[frame.width,frame.height]}),}));
+  ctx.clearRect(0,0,frame.width,frame.height); ctx.drawImage(frame.buffer,frame.x,frame.y); map.render();
+  },true);
+  map.addLayer(a);
+}
+//地震 end
+
+// 潮汐模式
+var cwbSeaTideMode = new ol.layer.Vector({source:new ol.source.Vector(),declutter:true,zIndex:10});
+var cwbSeaTideMode_URL = "https://taipeirccgis.nfa.gov.tw/rescuedata/nrccRealTimeData/seaTideModule.json";
+function getSeaTideMode(checkif) {
+  document.querySelector('label[for="btweather4"]').style.color=checkif?'#f4be18':'';
+  if(checkif){
+    $.getJSON(cwbSeaTideMode_URL, function (res) {
+      var count = res.length;
+      for (var i = 0; i < count; i++) {
+        var coordinates = ol.proj.fromLonLat([res[i].lon, res[i].lat]);
+        cwbSeaTideMode.getSource().addFeature(new ol.Feature({
+            geometry:new ol.geom.Point(coordinates),
+            name:res[i].locationName,
+            status0:res[i].status0,status1:res[i].status1,status2:res[i].status2,
+            time0:res[i].time0,time1:res[i].time1,time2:res[i].time2,
+            value0:res[i].value0,value1:res[i].value1,value2:res[i].value2,
+            unit:res[i].unit,
+          })
+        );
+      }
+      cwbSeaTideMode.setStyle(seaTideModeStyleFunction);
+    	map.addLayer(cwbSeaTideMode);
+    });
+  }else{
+    map.removeLayer(cwbSeaTideMode);
+  }
+}
+function seaTideModeStyleFunction() {
+	var imageSrc = "https://taipeirccapp.nfa.gov.tw/Public/nrcc/rwd/picture/sea.png";
+	return new ol.style.Style({
+		image:new ol.style.Icon(/** @type {olx.style.IconOptions} */({anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imageSrc,scale:0.08,})
+		),
+	});
+}//潮汐模式end
+
+// 鄉鎮天氣預報 start
+var cwbCityWeekForecast = new ol.layer.Vector({source:new ol.source.Vector(),declutter:true,zIndex:10});
+var cwbCityUrl ='https://opendata.cwb.gov.tw/api/v1/rest/datastore/F-D0047-093?Authorization=CWB-326DAE79-B70E-4DD3-BC36-07B077E82CAB&locationId=F-D0047-001,F-D0047-005,F-D0047-009,F-D0047-013,F-D0047-017,F-D0047-021,F-D0047-025,F-D0047-029,F-D0047-033,F-D0047-037,F-D0047-041,F-D0047-045,F-D0047-049,F-D0047-053,F-D0047-057,F-D0047-061,F-D0047-065,F-D0047-069,F-D0047-073,F-D0047-077,F-D0047-081,F-D0047-085,F-D0047-089&elementName=WS';
+function weekForecast(checkif){
+  document.querySelector('label[for="btweather5"]').style.color=checkif?'#f4be18':'';
+  if(checkif){
+    $.getJSON(cwbCityUrl,function(res){
+      console.log(res);
+      for (let i = 0; i < res.records.locations.length; i++) {
+        for(let y =0;y<res.records.locations[i].location.length;y++){
+          let lon = res.records.locations[i].location[y].lon;
+          let lat = res.records.locations[i].location[y].lat;
+          let coordinates = ol.proj.fromLonLat([lon, lat]);
+          cwbCityWeekForecast.getSource().addFeature(new ol.Feature({
+              geometry:new ol.geom.Point(coordinates),
+              locationName:res.records.locations[i].location[y].locationName,
+              time1:res.records.locations[i].location[y].weatherElement[0].time[1].dataTime,
+              value1:res.records.locations[i].location[y].weatherElement[0].time[1].elementValue[0].value,
+            })
+          );
+        }
+      }
+      cwbCityWeekForecast.setStyle(cityWeekForcastStyleFunction);
+      map.addLayer(cwbCityWeekForecast);
+    })
+  }else{
+    map.removeLayer(cwbCityWeekForecast);
+  }
+}
+function cityWeekForcastStyleFunction(feature) {
+  let setRadius;let setImageFill;let setImageStroke;
+	if ((feature.get("value1") >= 0) & (feature.get("value1") <=1)) {setImageFill = "rgb(90, 255, 50)";}//rgb(90, 255, 50)rgb(146, 208, 80)
+	else if ((feature.get("value1") > 1) & (feature.get("value1") <= 3)) {setImageFill = "rgb(255, 199, 0)";}
+	else if (feature.get("value1") > 3) {setImageFill = "rgba(255, 100, 100)";}
+  else{setImageFill = "rgba(255, 100, 100)";}
+	return new ol.style.Style({
+		text:new ol.style.Text({
+      text:"💨"+feature.get("value1")+' m/s',
+      font:pointFontSize,
+      fill:new ol.style.Fill({color:setImageFill}),
+      stroke:new ol.style.Stroke({width:3,color:[0, 0, 0]}),
+      padding:[-10, -2, -12, -20],
+      textAlign:'center'
+    })
+	});
+}
+// 鄉鎮天氣預報 endhttps://gis.fdkc.gov.tw/static/geosource/geolayers/gis_aed.geojson
+
+// 消防水源(署)nfawsd01
+var ws= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/nfawsd01.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function waterSource(checkif){
+  document.querySelector('label[for="btoverlay7"]').style.color=checkif?'#f4be18':'';
+  if(checkif){ws.setStyle(wsStyle); map.addLayer(ws);}
+  else{map.removeLayer(ws);}
+}
+// 消防水源wsd01
+var ws2= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/wsd01.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function waterSource2(checkif){
+  document.querySelector('label[for="btoverlay27"]').style.color=checkif?'#f4be18':'';
+  if(checkif){ws2.setStyle(wsStyle); map.addLayer(ws2);}
+  else{map.removeLayer(ws2);}
+}
+// geojson_file=[   'nfawsd01','dept'    , 'em_hospital_info','gis_2d_oil','gis_3d_oil', 'gis_aed','gis_dutyarea_d','gis_historicbuilding','gis_lackwater','gis_milepost',    'gis_monuments','gis_narrowlane','gis_opendata_aed','nfascd88',   'nfasca01',   'nfawsd01','rescueinfo',     'sca01','scd88',      'wsd01']
+// icon_file=   ['up_good.png','dept.png',    'hospital1.png',          '',          '','aed2.png',              '',   'history_build.png',             '',           'x','history_build.png',              '',         'aed.png',       'x', 'nfasca.png','up_good.png',         'x','nfasca.png',    'x','up_good.png']
+// 目前geojson有問題圖資=[自訂地標GIS_LOCATER,救難轄區圖GIS_DUTYAREA_E(救護),弱勢團體DIS_CHK_DEFECTIVE_NFA]
+
+var tmpScale=0.15;
+function wsStyle(feature){
+  let imgSrc;
+  if(feature.get('KINDNO')=='游泳池'){
+    imgSrc="/webdemo/gis119/img/water/pool.png";
+  }else if(feature.get('KINDNO')=='蓄水池'){
+    imgSrc="/webdemo/gis119/img/water/cistern.png";
+  // }else if(feature.get('KINDNO')=='消防栓'&&feature.get('TYPENO')=='地下式'&&feature.get('PLUGSTATUS')=='良好'){
+  }else if(feature.get('KINDNO')=='消防栓'&&feature.get('TYPENO')=='地下式'&&feature.get('WSSTATUS')=='良好'){
+    imgSrc="/webdemo/gis119/img/water/down_good.png";
+  }else if(feature.get('KINDNO')=='消防栓'&&feature.get('TYPENO')=='地下式'&&feature.get('WSSTATUS')=='損壞'){
+    imgSrc="/webdemo/gis119/img/water/down_bad.png";
+  }else if(feature.get('KINDNO')=='消防栓'&&feature.get('TYPENO')=='地下式'&&feature.get('WSSTATUS')=='null'){
+    imgSrc="/webdemo/gis119/img/water/down_bad.png";
+  }else if(feature.get('KINDNO')=='消防栓'&&feature.get('TYPENO')=='地上式'&&feature.get('WSSTATUS')=='良好'){
+    imgSrc="/webdemo/gis119/img/water/up_good.png";
+  }else if(feature.get('KINDNO')=='消防栓'&&feature.get('TYPENO')=='地上式'&&feature.get('WSSTATUS')=='損壞'){
+    imgSrc="/webdemo/gis119/img/water/up_bad.png";
+  }else{
+    imgSrc="/webdemo/gis119/img/water/other.png";
+  }
+  return new ol.style.Style({
+    image:new ol.style.Icon(({
+        anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imgSrc,scale:tmpScale
+      })
+		),
+  });
+}
+
+// popup
+var divpop = document.getElementById('popup');
+var popup = new ol.Overlay({element:document.getElementById('popup')});
+map.addOverlay(popup);
+
+map.on('pointermove',function(evt){
+  var a=0;
+  var feature = this.forEachFeatureAtPixel(evt.pixel, function(feature,layer) {
+    switch (layer) {
+      case cwbEarthquake:a=1; break; case cwbRainfall:a=3; break; case mountainSite:a=4; break; case cwbSeaTideMode:a=5; break;
+      case cwbCityWeekForecast:a=6; break; case ws:a=7; break; case cwb_O_A0001_001:a=8; break;
+      case nantouDsp:a=11; break; case casepoint:a=12; break; case carpoint:a=13; break; case manygj[27]: a=7; break;
+      case em_hos_gj: a=15; break; case aedp_gj: a=16; break; case nfasca_gj: a=17; break;
+      default:
+      if (layer && layer.get('name')) { 
+        if (layer.get('name').indexOf('dgdp')>=0) { a=2; }
+      } else {
+        if (manygj.indexOf(layer)>=0) { a=14; }
+      };
+    }
+    return feature;
+  });
+  if (a>0) {
+    this.getTargetElement().style.cursor = 'pointer';
+    divpop.style.display='block';
+    let note;let time;let location;let unit;let value;
+    switch (a) {
+      case 1:
+        divpop.style.width='450px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="4">'+feature.get('location').split('(')[0]+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td style="width:60px;">芮氏規模</td>'+'<td>'+feature.get('value')+'</td>'+'<td>深度</td>'+'<td>'+feature.get('deep')+'km'+'</tr>'+'<tr>'+'<td>內容</td>'+'<td colspan="3" style="text-align:left;">'+feature.get('note')+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 2:
+        divpop.style.width='auto';
+        if (feature) {
+          var j=feature.get('description') || feature.get('name') || feature.get('_name') || feature.get('layer');
+          if (j) {
+            divpop.innerHTML='<div style="text-align:left;font-family:微軟正黑體;padding-left:5px">'+j+'</div>';
+            popup.setPosition(evt.coordinate);
+          } else { divpop.style.display='none'; };
+        } else {
+          divpop.style.display='none';
+        };
+        break;
+      case 3:
+        divpop.style.width='200px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="2">'+feature.get('name')+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td>雨量</td>'+'<td>'+feature.get('value')+' mm</td>'+'</tr>'+'<tr>'+'<td>時間</td>'+'<td>'+feature.get('time')+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 4:
+        divpop.style.width='250px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="2">'+feature.get('name')+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td>降雨機率</td>'+'<td>'+feature.get('value')+'%</td>'+'</tr>'+'<tr>'+'<td>起</td>'+'<td>'+feature.get('startTime').substr(0,19).replace('T',' ')+'</td>'+'</tr>'+'<tr>'+'<td>訖</td>'+'<td>'+feature.get('endTime').substr(0,19).replace('T',' ')+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 5:
+        divpop.style.width='250px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="2">'+feature.get('name')+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td style="width:60px;">'+feature.get('status0')+'</td>'+'<td>'+feature.get('time0').split(/T|\+/)[0]+' '+feature.get('time0').split(/T|\+/)[1]+'</td>'+'</tr>'+'<tr>'+'<td>'+feature.get('status1')+'</td>'+'<td>'+feature.get('time1').split(/T|\+/)[0]+' '+feature.get('time1').split(/T|\+/)[1]+'</td>'+'</tr>'+'<tr>'+'<td>'+feature.get('status2')+'</td>'+'<td>'+feature.get('time2').split(/T|\+/)[0]+' '+feature.get('time2').split(/T|\+/)[1]+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 6:
+        divpop.style.width='200px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="2">'+feature.get('locationName')+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td>風速</td>'+'<td>'+feature.get('value1')+' m/s</td>'+'</tr>'+'<tr>'+'<td>時間</td>'+'<td>'+feature.get('time1').substr(0, 19)+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 7:
+        divpop.style.width='300px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="2">'+feature.get('WSNO')+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td style="width:60px;">種類</td>'+'<td>'+feature.get('KINDNO')+'</td>'+'</tr>'+'<tr>'+'<td>類別</td>'+'<td>'+feature.get('TYPENO')+'</td>'+'</tr>'+'<tr>'+'<td>狀態</td>'+'<td>'+feature.get('PLUGSTATUS')+'</td>'+'</tr>'+'<tr>'+'<td>地址</td>'+'<td style="font-size:20px;text-align:left;">'+feature.get('ADDRESS')+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 8:
+        divpop.style.width='200px';
+        divpop.innerHTML='<div class="popupTable">'+'<table>'+'<thead>'+'<tr>'+'<th colspan="2">'+feature.get('name')+'</th>'+'</tr>'+'</thead>'+'<tbody>'+'<tr>'+'<td>溫度</td>'+'<td>'+feature.get('value')+'°C</td>'+'</tr>'+'<tr>'+'<td>時間</td>'+'<td>'+feature.get('time')+'</td>'+'</tr>'+'</tbody>'+'</table>'+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 9:
+        divpop.style.width='200px';
+        divpop.innerHTML='<div style="font-size:25px;">呼號：'+feature.get('name0')+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 10:
+        divpop.style.width='200px';
+        divpop.innerHTML='<div style="font-size:25px;">醫院：'+feature.get('HOSPITAL_NAME')+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 11:
+        divpop.style.width='150px';
+        divpop.innerHTML='<div style="font-size:25px;">'+feature.get('DEPTNAME')+'</div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 12:
+        divpop.style.width='500px';
+        divpop.innerHTML='<div class="popupTable"><table><thead><tr><th colspan="2">'+feature.get('csno')+'</th></tr></thead><tbody><tr><td style="width:60px;">'+feature.get('dept')+'</td><td style="font-size:20px;">'+feature.get('nt_name')+'  '+feature.get('nt_tel')+'</td></tr><tr><td>'+feature.get('dis_code_case')+'</td><td>'+feature.get('dis_code')+'</td></tr><tr><td colspan="2">'+feature.get('cs_place')+'</td></tr><tr><td colspan="2">'+feature.get('memo')+'</td></tr><tr><td>時間</td><td style="font-size:18px;text-align:left;">'+new Date(feature.get('in_time')).toLocaleString()+'</td></tr></tbody></table></div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 13:
+        divpop.style.width='300px';
+        divpop.innerHTML='<div class="popupTable"><table><thead><tr><th colspan="2">'+(feature.get('csno')||'---')+'</th></tr></thead><tbody><tr><td style="width:60px;">車號</td><td>'+feature.get('car_no')+'</td></tr><tr><td>呼號</td><td>'+feature.get('call_no')+'</td></tr><tr><td>狀態</td><td>'+(feature.get('csno')?'處理中':'待命中')+'</td></tr><tr><td>時間</td><td style="font-size:18px;text-align:left;">'+new Date(feature.get('msg_date')).toLocaleString()+'</td></tr></tbody></table></div>';
+        popup.setPosition(evt.coordinate);
+        break;
+      case 14:
+        divpop.style.width='300px';
+        var aa='<div class="smallpopupTable">';
+        let ii=feature.getProperties(); delete ii['geometry'];
+        for (var i in ii) {
+          aa+='<b>'+i+'</b>：'+ii[i]+'<br>';
+        };
+        aa+='</div>';
+        divpop.innerHTML=aa;
+        popup.setPosition(evt.coordinate);
+        break;
+      case 15:
+        divpop.style.width='100px';
+        divpop.innerHTML=feature.get('HOSPITAL_NAME');
+        popup.setPosition(evt.coordinate);
+        break;
+      case 16:
+        divpop.style.width='300px';
+        divpop.innerHTML=feature.get('MEMO')+'<br>'+feature.get('ADDRESS');
+        popup.setPosition(evt.coordinate);
+        break;
+      case 17: 
+        divpop.style.width='300px';
+        divpop.innerHTML=feature.get('LOCNAME')+'<br>'+feature.get('DEPTNAME');
+        popup.setPosition(evt.coordinate);
+        break;
+    };
+  } else {
+    this.getTargetElement().style.cursor = '';
+    divpop.style.display='none';
+  }
+});
+
+map.on('singleclick',function(evt){
+  var a=0;
+  var feature = this.forEachFeatureAtPixel(evt.pixel, function(feature,layer) {
+    switch (layer) {case casepoint: a=1; break; case carpoint: a=2; break;}; return feature;
+  });
+  if (a>0) {
+    this.getTargetElement().style.cursor='pointer';
+    switch (a) {
+      case 1:
+        document.getElementById('caseinfo').innerHTML='<div id=dragcaseinfo></div><div class="popupTable"><table><thead><tr><th colspan="2">'+feature.get('csno')+'</th></tr></thead><tbody><tr><td style="width:60px;">'+feature.get('dept')+'</td><td style="font-size:20px;">'+feature.get('nt_name')+'  '+feature.get('nt_tel')+'</td></tr><tr><td>'+feature.get('dis_code_case')+'</td><td>'+feature.get('dis_code')+'</td></tr><tr><td colspan="2">'+feature.get('cs_place')+'</td></tr><tr><td colspan="2">'+feature.get('memo')+'</td></tr><tr><td>時間</td><td style="font-size:18px;text-align:left;">'+new Date(feature.get('in_time')).toLocaleString()+'</td></tr></tbody></table></div>';
+        dragfig(document.getElementById('caseinfo'));
+        document.getElementById('caseinfo').style.display='block';
+        //feture塞入temp
+        casepointtmp.getSource().clear();
+        casepointtmp.getSource().addFeature(feature);
+        casepointtmp.setVisible(true);
+        casepointtmp.setStyle(function(ff) {return new ol.style.Style({image:new ol.style.Icon(({src:'/static/map/img/icon/'+caseTypeIconDict[ff.get('dis_code_case')].replace('.png','gray.png'),scale:Math.min(Math.max(mapzoom/50,0.01),1.5)*1.2}))})});
+        //設定其他為灰色
+        //casepointtmp.setStyle(function(ff) {return new ol.style.Style({image:new ol.style.Icon(({src:'/static/map/img/icon/'+caseTypeIconDict[ff.get('dis_code_case')],scale:Math.min(Math.max(mapzoom/50,0.01),1.5)}))})});
+        break;
+      // case 2:
+      //   map.getView().fit(feature.getGeometry().getExtent(),{padding:[200,200,200,200],duration:500});
+      //   break;
+    };
+  } else {
+    this.getTargetElement().style.cursor='';
+    casepointtmp.getSource().clear();
+    document.getElementById('caseinfo').style.display='none'; 
+  }
+})
+
+function dragfig(e) {
+  var pos1=0,pos2=0,pos3=0,pos4=0;
+  var mobile=/Android|Windows|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent);
+  if (mobile) {
+    var de=document.getElementById("drag"+e.id)
+    de.addEventListener("touchmove",function(ee){
+      var touch=ee.targetTouches[0];
+      //e.style.left=touch.pageX+"px"; e.style.top=touch.pageY+"px";
+      e.style.left=touch.pageX-touch.radiusX+"px"; e.style.top=touch.pageY+touch.radiusY+"px";
+      ee.preventDefault();
+    },false);
+  } else {
+    if (document.getElementById("drag"+e.id)) { document.getElementById("drag"+e.id).onmousedown=dragfigmd;
+    } else { e.onmousedown=dragfigmd; };
+    function dragfigmd(ee) {
+      ee=ee||window.event; pos3=ee.clientX; pos4=ee.clientY; document.onmouseup=dragfigdone; document.onmousemove=dragfigelm;
+      if (document.getElementsByClassName("KUOz-11")[0]) { var i=document.getElementsByClassName("KUOz-11")[0];
+        document.getElementById(i.id).className=document.getElementById(i.id).className.replace(" KUOz-11",""); };
+      document.getElementById(e.id).className=document.getElementById(e.id).className+" KUOz-11"; };
+    function dragfigelm(ee) {
+      ee=ee||window.event; pos1=pos3-ee.clientX; pos2=pos4-ee.clientY; pos3=ee.clientX; pos4=ee.clientY;
+      e.style.top=(e.offsetTop-pos2)+"px"; e.style.left=(e.offsetLeft-pos1)+"px";};
+    function dragfigdone() {document.onmouseup=null; document.onmousemove=null;};
+  };
+};//end of func dragfig
+
+// 座標轉換
+var mousepos = new ol.control.MousePosition({
+  coordinateFormat:function(c) {
+    var i=document.getElementById('epsgproj').value;
+    var d=ol.proj.transform(c,i,'EPSG:4326');
+    document.getElementById('tdCursor2').innerHTML=(~~d[0])+"<sup>o</sup>"+("00"+((d[0]%1)*60).toFixed(2)).slice(-5)+"'E&nbsp;,&nbsp;"+(~~d[1])+"<sup>o</sup>"+("00"+((d[1]%1)*60).toFixed(2)).slice(-5)+"'N";
+    var ii=(~~((((d[0]-~~d[0])*60)-(~~((d[0]-~~d[0])*60)))*60)).toString()
+    document.getElementById('tdCursor3').innerHTML=(~~d[0])+"<sup>o</sup>"+("00"+(~~((d[0]-~~d[0])*60)).toString()).slice(-2)+"'"+("00"+(~~((((d[0]-~~d[0])*60)-(~~((d[0]-~~d[0])*60)))*60)).toString()).slice(-2)+'"E&nbsp;,&nbsp;'+(~~d[1])+"<sup>o</sup>"+("00"+(~~((d[1]-~~d[1])*60)).toString()).slice(-2)+"'"+("00"+(~~((((d[1]-~~d[1])*60)-(~~((d[1]-~~d[1])*60)))*60)).toString()).slice(-2)+'"N';
+    if (i=='EPSG:4326') {
+      return ol.coordinate.format(c," {x}<sup>o</sup>E , {y}<sup>o</sup>N&nbsp;",5);
+    } else {
+      var j=ol.coordinate.format(c,"{x},{y}",5); return ' '+j.split(',')[0].substr(0,11)+' , '+j.split(',')[1].substr(0,10)+'<sup>&nbsp;</sup>';
+    };
+  },
+  projection:document.getElementById('epsgproj').value, 
+  className:'custom-mouse-position', 
+  target:document.getElementById('tdCursor1'),
+  undefinedHTML:" Longitude<sup>o</sup>E , Latitude<sup>o</sup>N&nbsp;"
+});
+map.addControl(mousepos);
+// 座標轉換
+
+var mapzoom=9;
+// 縮放icon大小
+map.getView().on('change:resolution', (event) => {
+  mapzoom = map.getView().getZoom();
+  setLayerStyleScale(mapzoom);
+});
+function setLayerStyleScale(mapzoom) {
+  if (mapzoom < 12 && mapzoom > 10) {
+    tmpScale = 0.2;pointFontSize='24px sans-serif';
+  } else if (mapzoom < 14 && mapzoom >= 12) {
+    tmpScale = 0.25;pointFontSize='26px sans-serif';
+  }
+  else if (mapzoom >= 14 && mapzoom < 15) {
+    tmpScale = 0.3;pointFontSize='28px sans-serif'
+  } else if (mapzoom >= 15) {
+    tmpScale = 0.35;pointFontSize='32px sans-serif';
+  }
+  ws.setStyle(wsStyle);
+  cwbRainfall.setStyle(rainfallStyleFunction)
+  cwb_O_A0001_001.setStyle(tempStyleFunction)
+  cwbCityWeekForecast.setStyle(cityWeekForcastStyleFunction)
+  mountainSite.setStyle(mountainStyleFunction)
+  // casepoint.setStyle(caseStyle); 
+  // clLocLayer.setStyle(clLocLayerStyleFunction);
+}
+// 縮放icon大小
+
+// 標記點位
+var clr = ['0080FF','00A0FF','40C0FF','40E0FF','40FFFF','40FF40','80FF40','C0FF40','FFFF40','FFE040','FFA040','FF6040','FF2040','FF60C0','FFA0FF','FFE0FF'];
+var freehand,freehandvec;
+function toggleFreehand(a, e) {
+  document.querySelector('label[for="btnmaptool2"]').style.color=a?'#f4be18':'';
+  if (a) {
+    var k=new Date().getMilliseconds()%16;
+    var s = [new ol.style.Style({ stroke:new ol.style.Stroke({ width:5, color:'#000' }) }), new ol.style.Style({ stroke:new ol.style.Stroke({ width:3, color:'#' + clr[k] }), image:new ol.style.Circle({ radius:8, fill:new ol.style.Fill({ color:'#' + clr[k] }), stroke:new ol.style.Stroke({ width:2, color:'#000' }) }) })];
+    freehandvec = new ol.layer.Vector({ source:new ol.source.Vector(), style:s, zIndex:16, renderMode:'image' });
+    freehand = new ol.interaction.Draw({ source:freehandvec.getSource(), freehand:true, type:'LineString', style:s });
+    map.addLayer(freehandvec); map.addInteraction(freehand);
+  } else {
+    if (freehand) { map.removeInteraction(freehand); freehandvec.setSource(null); map.removeLayer(freehandvec); };
+  };
+};//end of func toggleFreehand
+ 
+// 測量 start
+var iomeas=false; var sourcemeas=new ol.source.Vector();
+var vectormeas=new ol.layer.Vector({source:sourcemeas,zIndex:32,style:function (feature) {return styleFunction(feature,true)}});
+
+const stylemeas=new ol.style.Style({
+  fill:new ol.style.Fill({color:'rgba(255,255,255,0.2)'}),stroke:new ol.style.Stroke({color:'rgba(255,0,0,.8)',lineDash:[10,10],width:2}),
+  image:new ol.style.Circle({radius:5,stroke:new ol.style.Stroke({color:'#000'}),fill:new ol.style.Fill({color:'rgba(255,255,255,.2)'})})
+});
+const labelStyle=new ol.style.Style({text:new ol.style.Text({font:'24px Calibri,sans-serif',fill:new ol.style.Fill({color:'#fff'}),
+  backgroundFill:new ol.style.Fill({color:'rgba(0,0,0,0.7)'}),padding:[3,3,3,3],textBaseline:'bottom',offsetY:-15,overflow:true,
+  backgroundStroke:new ol.style.Stroke({color:'#f00',width:1})}),image:new ol.style.RegularShape({radius:8,points:3,angle:Math.PI,
+  displacement:[0,10],fill:new ol.style.Fill({color:'rgba(255,0,0,.7)'}),stroke:new ol.style.Stroke({color:'#000',width:2})})
+});
+const tipStyle=new ol.style.Style({text:new ol.style.Text({font:'16px Calibri,sans-serif',fill:new ol.style.Fill({color:'#fff'}),
+  backgroundFill:new ol.style.Fill({color:'rgba(0,0,0,.4)'}),padding:[2,2,2,2],textAlign:'left',offsetX:15})
+});
+const modifyStyle=new ol.style.Style({
+  image:new ol.style.Circle({radius:5,stroke:new ol.style.Stroke({color:'rgba(0,0,0,0.7)'}),fill:new ol.style.Fill({color:'#0f0'})}),
+  text:new ol.style.Text({text:'拖曳調整',font:'20px Calibri,sans-serif',fill:new ol.style.Fill({color:'#0f0'}),
+  backgroundFill:new ol.style.Fill({color:'rgba(0,0,0,.7)'}),padding:[2,2,2,2],textAlign:'left',offsetX:15})
+});
+const segmentStyle=new ol.style.Style({text:new ol.style.Text({font:'16px Calibri,sans-serif',fill:new ol.style.Fill({color:'#fff'}),
+  backgroundFill:new ol.style.Fill({color:'rgba(0,0,0,.7)'}),padding:[0,2,0,2],textBaseline:'bottom',offsetY:-12,overflow:true,
+  backgroundStroke:new ol.style.Stroke({color:'#f00',width:1})}),
+  image:new ol.style.RegularShape({radius:6,points:3,angle:Math.PI,displacement:[0,8],fill:new ol.style.Fill({color:'rgba(255,0,0,.4)'})})
+});
+const segmentStyles=[segmentStyle];
+const formatLength=function (line) {const lengthmeas=ol.sphere.getLength(line); let output;
+  if (lengthmeas>100) {output=Math.round((lengthmeas/1000)*100)/100+' km';} else {output=Math.round(lengthmeas*100)/100+' m';}; return output;
+};
+const formatArea=function (polygon) {const areameas=ol.sphere.getArea(polygon); let output;
+  if (areameas>10000) {output=Math.round((areameas/1000000)*100)/100+' km\xB2';} else {output=Math.round(areameas*100)/100+' m\xB2';}
+  return output;
+};
+let tipPoint;
+function styleFunction(feature,segments,drawType,tip) {
+  const stylemeass=[stylemeas]; const geometrymeas=feature.getGeometry(); const typemeas=geometrymeas.getType();
+  let point,label,line;
+  if (!drawType || drawType===typemeas) {
+    if (typemeas==='Polygon') {
+      point=geometry.getInteriorPoint(); label=formatArea(geometrymeas); line=new ol.geom.LineString(geometrymeas.getCoordinates()[0]);
+    } else if (typemeas==='LineString') {
+      point=new ol.geom.Point(geometrymeas.getLastCoordinate()); label=formatLength(geometrymeas); line=geometrymeas;
+    };
+  };
+  if (segments && line) {
+    let count=0;
+    line.forEachSegment(function (a,b) {
+      const segment=new ol.geom.LineString([a,b]); const label=formatLength(segment);
+      if (segmentStyles.length- 1 < count) { segmentStyles.push(segmentStyle.clone()); }
+      const segmentPoint=new ol.geom.Point(segment.getCoordinateAt(0.5));
+      segmentStyles[count].setGeometry(segmentPoint); segmentStyles[count].getText().setText(label); stylemeass.push(segmentStyles[count]);
+      count++;
+    });
+  };
+  if (label) {labelStyle.setGeometry(point); labelStyle.getText().setText(label); stylemeass.push(labelStyle); };
+  if (tip && typemeas==='Point' && !modifymeas.getOverlay().getSource().getFeatures().length) {
+    tipPoint=geometrymeas; tipStyle.getText().setText(tip); stylemeass.push(tipStyle);
+  };
+  return stylemeass;
+};
+var modifymeas=new ol.interaction.Modify({source:sourcemeas,style:modifyStyle});
+map.addInteraction(modifymeas);
+
+let drawmeas;
+function addInteractionmeas() {
+  const drawType='LineString';
+  const activeTip='點擊繪製'+(drawType==='Polygon'?'多邊形':'線段');
+  const idleTip='點擊以開始測量';
+  let tip=idleTip;
+  drawmeas=new ol.interaction.Draw({source:sourcemeas,type:drawType,style:function (feature){return styleFunction(feature,true,drawType,tip)}});
+  drawmeas.on('drawstart',function () { modifymeas.setActive(false); tip=activeTip;});
+  drawmeas.on('drawend', function () { modifyStyle.setGeometry(tipPoint); modifymeas.setActive(true);
+    map.once('pointermove', function () { modifyStyle.setGeometry();}); tip=idleTip;
+  });
+  modifymeas.setActive(true);
+  map.addInteraction(drawmeas);
+};
+function toggleMeasure(a, e) {
+  document.querySelector('label[for="btnmaptool1"]').style.color=a?'#f4be18':'';
+  if (a) {addInteractionmeas(); map.addLayer(vectormeas);} 
+  else {map.removeInteraction(drawmeas); modifymeas.setActive(false); sourcemeas.clear(); vectormeas.changed();map.removeLayer(vectormeas);};
+};
+// 測量 end
+
+// declutter_
+function toggleDeclutter(a, b) {
+  document.querySelector('label[for="btnmaptool3"]').style.color=a?'#f4be18':'';
+  var f=map.getLayers().getArray();
+  for (var j=0; j<f.length; j++) {f[j].declutter_=a; f[j].changed();  }
+}//end of func toggleDeclutter
+
+
+// 分隊
+var nantouDsp= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/dept.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function dspLocation(checkif){
+  document.querySelector('label[for="btoverlay8"]').style.color=checkif?'#f4be18':'';
+  if(checkif){nantouDsp.setStyle(dspStyle); map.addLayer(nantouDsp);}
+  else{map.removeLayer(nantouDsp);}
+}
+function dspStyle(feature){
+  let imgSrc = 'https://gis.fdkc.gov.tw/static/img/mapicon/dept.png';
+  return new ol.style.Style({
+    image:new ol.style.Icon(({
+        anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imgSrc,scale:tmpScale
+      })
+		),
+  });
+}
+// 急救醫院
+var em_hos_gj= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/em_hospital_info.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function hospitalLocation(checkif){
+  document.querySelector('label[for="btoverlay9"]').style.color=checkif?'#f4be18':'';
+  if(checkif){em_hos_gj.setStyle(em_hosStyle); map.addLayer(em_hos_gj);}
+  else{map.removeLayer(em_hos_gj);}
+}
+function em_hosStyle(feature){
+  let imgSrc = 'https://gis.fdkc.gov.tw/static/img/mapicon/hospital1.png';
+  return new ol.style.Style({
+    image:new ol.style.Icon(({
+        anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imgSrc,scale:tmpScale
+      })
+		),
+  });
+}
+// AED場所
+var aedp_gj= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/gis_aed.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function aedpLocation(checkif){
+  document.querySelector('label[for="btoverlay10"]').style.color=checkif?'#f4be18':'';
+  if(checkif){aedp_gj.setStyle(aedpStyle); map.addLayer(aedp_gj);}
+  else{map.removeLayer(aedp_gj);}
+}
+function aedpStyle(feature){
+  let imgSrc = 'https://gis.fdkc.gov.tw/static/img/mapicon/aed2.png';
+  return new ol.style.Style({
+    image:new ol.style.Icon(({
+        anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imgSrc,scale:tmpScale
+      })
+		),
+  });
+}
+// 列管場所(消防署)NFASCA01
+var nfasca_gj= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/nfasca01.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function nfascaLocation(checkif){
+  document.querySelector('label[for="btoverlay11"]').style.color=checkif?'#f4be18':'';
+  if(checkif){nfasca_gj.setStyle(nfascaStyle); map.addLayer(nfasca_gj);}
+  else{map.removeLayer(nfasca_gj);}
+}
+function nfascaStyle(feature){
+  let imgSrc = 'https://gis.fdkc.gov.tw/static/img/mapicon/nfasca.png';
+  return new ol.style.Style({
+    image:new ol.style.Icon(({
+        anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imgSrc,scale:tmpScale
+      })
+		),
+  });
+}
+// 水源缺乏
+var lackw_gj=new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/gis_lackwater.geojson',format:new ol.format.GeoJSON()}),zIndex:10,
+  style:function(feature){new ol.style.Style({stroke: new ol.style.Stroke({color: '#f8f',width: 3,}),fill: new ol.style.Fill({color: 'rgba(255, 0, 0, 0.1)',}),text: new ol.style.Text({font:'24px sans-serif',text: feature.get('NAME'),fill:new ol.style.Fill({color: 'white',}),stroke:new ol.style.Stroke({color: 'rgba(0, 0, 0, 1)',width: 5,})})
+  })}});
+function lackwLocation(checkif){
+  document.querySelector('label[for="btoverlay12"]').style.color=checkif?'#f4be18':'';
+  if(checkif){map.addLayer(lackw_gj);} else {map.removeLayer(lackw_gj);}
+}
+// AED
+var aedp_gj= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/gis_aed.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function aedpLocation(checkif){
+  document.querySelector('label[for="btoverlay10"]').style.color=checkif?'#f4be18':'';
+  if(checkif){aedp_gj.setStyle(aedpStyle); map.addLayer(aedp_gj);}
+  else{map.removeLayer(aedp_gj);}
+};
+function aedpStyle(feature){
+  let imgSrc = 'https://gis.fdkc.gov.tw/static/img/mapicon/aed2.png';
+  return new ol.style.Style({
+    image:new ol.style.Icon(({
+        anchor:[0.5, 46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:imgSrc,scale:tmpScale
+      })
+		),
+  });
+};
+
+// multi
+var manygj=new Array(40);
+function manylocation(a,i){
+  document.querySelector('label[for="btoverlay'+i+'"]').style.color=a?'#f4be18':'';
+  if(a){
+    switch (i) {
+      case 25:
+        manygj[i]=new ol.layer.Vector({source:new ol.source.Vector({url:'/webdemo/gis119/geoSource/geolayers/'+document.getElementById('btoverlay'+i).value+'.geojson',format:new ol.format.GeoJSON()}),zIndex:10,style:function(feature){ return new ol.style.Style({image:new ol.style.Icon(({anchor:[0.5,46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:'/webdemo/gis119/img/'+document.getElementById('btoverlay'+i).value+feature.get('class')+'.png',scale:0.25}))})}}); break;
+      default:
+        manygj[i]=new ol.layer.Vector({source:new ol.source.Vector({url:'/webdemo/gis119/geoSource/geolayers/'+document.getElementById('btoverlay'+i).value+'.geojson',format:new ol.format.GeoJSON()}),zIndex:10,style:new ol.style.Style({image:new ol.style.Icon(({anchor:[0.5,46],anchorXUnits:"fraction",anchorYUnits:"pixels",src:'/webdemo/gis119/img/'+document.getElementById('btoverlay'+i).value+'.png',scale:0.25}))})}); break;
+    };
+    map.addLayer(manygj[i]);
+  } else {
+    map.removeLayer(manygj[i]);
+  };
+};
+
+// 救災轄區圖 wei add 20220906
+var gis_dutyareaLayer= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/gis_dutyarea_d.geojson',format:new ol.format.GeoJSON()}),zIndex:10});
+function gis_dutyarea(checkif){
+  document.querySelector('label[for="btoverlay19"]').style.color=checkif?'#f4be18':'';
+  if(checkif){gis_dutyareaLayer.setStyle(gis_dutyareaStyle); map.addLayer(gis_dutyareaLayer);}
+  else{map.removeLayer(gis_dutyareaLayer);}
+}
+function gis_dutyareaStyle(feature){
+  return new ol.style.Style({
+    stroke: new ol.style.Stroke({color: 'red',width: 3,}),
+    fill: new ol.style.Fill({color: 'rgba(255, 0, 0, 0.1)',}),
+    text: new ol.style.Text({font:'24px sans-serif',text: feature.get('SUBSECTION'),fill:new ol.style.Fill({color: 'white',}),stroke:new ol.style.Stroke({color: 'rgba(0, 0, 0, 1)',width: 5,})})
+  })
+}
+
+// 工業管線 wei add 20220906
+let gis_2d_oilLayer= new ol.layer.Vector({source:new ol.source.Vector({url:'https://gis.fdkc.gov.tw/static/geosource/geolayers/gis_2d_oil.geojson',format:new ol.format.GeoJSON()}),zIndex:10,declutter:true});
+function gis_2d_oil(checkif){
+  document.querySelector('label[for="btoverlay23"]').style.color=checkif?'#f4be18':'';
+  if(checkif){gis_2d_oilLayer.setStyle(gis_2d_oilStyle); map.addLayer(gis_2d_oilLayer);}
+  else{map.removeLayer(gis_2d_oilLayer);}
+}
+let gis_2d_oilColor=['#FFA0FF', '#C0FF40', '#40C0FF', '#FFFF40', '#FFA040', '#FF2040', '#40FFFF'];
+let gis_2d_oilDict={};
+function gis_2d_oilStyle(feature){
+  let tmpColorNumber;
+  let style = gis_2d_oilDict[feature.get('PMATERIAL')];
+  if (!style){
+    tmpColorNumber=Math.floor(Math.random()*(gis_2d_oilColor.length-1));
+    style = gis_2d_oilDict[feature.get('PMATERIAL')] = new ol.style.Style({
+      stroke: new ol.style.Stroke({color: gis_2d_oilColor[tmpColorNumber],width: 7,}),
+      text: new ol.style.Text({font:'24px sans-serif',text: feature.get('PMATERIAL'),placement:'line',fill:new ol.style.Fill({color: gis_2d_oilColor[tmpColorNumber],}),stroke:new ol.style.Stroke({color: 'black',width: 5,})})
+    })
+  }
+  return style;
+}
+
+//kuoadd EMIC
+function toggleEMIClayer(a,b,c) {
+  let emicurl=["https://gis2.emic.gov.tw//EMICData/183.kml","https://gis2.emic.gov.tw/EMICDataStatic/%E6%B4%BB%E5%8B%95%E6%96%B7%E5%B1%A4.kml","https://gis2.emic.gov.tw/EMICData/91.kml"];
+  document.querySelector('label[for="btwarning'+c+'"]').style.color=a?'#f4be18':'';
+  if (a) {
+    map.addLayer(new ol.layer.Vector({source:new ol.source.Vector({url:emicurl[c-3],format:new ol.format.KML(),crossOrigin:'anonymous'}),zIndex:11,name:'dgdpemic'+b}));
+  } else {
+    var i=map.getLayers().getArray();
+    for (var j=0; j<i.length; j++) {
+      if(i[j].get("name") && i[j].get("name")=='dgdpemic'+b) {map.removeLayer(i[j]); break;}
+    }; 
+  };
+};
+
+// 案件列表
+function caselist() {
+  let table = document.getElementById('caseListTable'); table.innerHTML='';
+  let tbody = table.createTBody();
+  casepointsrc.getFeatures().forEach(function(i) {
+    let row = tbody.insertRow();
+    row.setAttribute('onclick','caseLocMove('+i.getId()+')');
+    row.insertCell(0).innerHTML='<div><b>'+i.getId()+'</b></div><div>【'+i.get('dis_code_case')+'─'+i.get('dis_code').split('_')[1]+'】<br>'+i.get('nt_name')+' = '+i.get('nt_tel')+'<br>'+i.get('cs_place')+'<br>'+new Date(i.get('in_time')).toLocaleString();
+  });
+};
+
+// 移動至案件位置
+function caseLocMove(i){
+  map.getView().animate({center:casepointsrc.getFeatureById(i).getGeometry().getCoordinates(),zoom:16});
+}
+
+//kuoadd 即時案件
+function caseLocation(){
+  casepoint.setVisible(document.getElementById('btnrealtime1').checked);
+  if (document.getElementById('btnrealtime1').checked) {
+    $.getJSON('https://59rzc4v.localto.net/',function(f) {
+      if (f.io==1) {
+        var csno=f.csno;
+        casepointsrc.getFeatures().forEach(function(i) {
+          let j=csno.indexOf(i.getId());
+          if (j<0) {
+            casepointsrc.removeFeature(i);
+          } else {
+            i.setProperties({csno:f.csno[j],dis_code:f.dis_code[j],in_time:f.in_time[j],dept:f.dept[j],nt_name:f.nt_name[j],nt_tel:f.nt_tel[j],cs_place:f.cs_place[j],memo:f.memo[j],dis_code_case:f.dis_code_case[j]});
+            i.getGeometry().setCoordinates(ol.proj.transform([f.x[j],f.y[j]],'EPSG:4326','EPSG:3857'));
+          };
+        });
+        for (let ii=0; ii<csno.length; ii++) {
+          if (!casepointsrc.getFeatureById(csno[ii])) {
+            let jj=new ol.Feature({type:'Point',geometry:new ol.geom.Point(ol.proj.transform([f.x[ii],f.y[ii]],'EPSG:4326','EPSG:3857')),csno:f.csno[ii],dis_code:f.dis_code[ii],in_time:f.in_time[ii],dept:f.dept[ii],nt_name:f.nt_name[ii],nt_tel:f.nt_tel[ii],cs_place:f.cs_place[ii],memo:f.memo[ii],dis_code_case:f.dis_code_case[ii]});
+            jj.setId(csno[ii]);
+            casepointsrc.addFeature(jj);
+          };
+        };
+      };
+      caselist();
+      setTimeout(caseLocation,5000);
+    });
+  };
+};
+
+
+function carLocation(){
+  carpoint.setVisible(document.getElementById('btnrealtime2').checked);
+  if (document.getElementById('btnrealtime2').checked) {
+    $.getJSON('https://dclq16w.localto.net/',function(f) {
+      if (f.io==1) {
+        var imei=f.imei;
+        carpointsrc.getFeatures().forEach(function(i) {
+          let j=imei.indexOf(i.getId());
+          if (j<0) {
+            carpointsrc.removeFeature(i);
+          } else {
+            i.setProperties({csno:f.csno[j],car_no:f.car_no[j],call_no:f.call_no[j],dir0:f.dir0[j],msg_date:f.msg_date[j]});
+            i.getGeometry().setCoordinates(ol.proj.transform([f.x[j],f.y[j]],'EPSG:4326','EPSG:3857'));
+          };
+        });
+        for (let ii=0; ii<imei.length; ii++) {
+          if (!carpointsrc.getFeatureById(imei[ii])) {
+            let jj=new ol.Feature({type:'Point',geometry:new ol.geom.Point(ol.proj.transform([f.x[ii],f.y[ii]],'EPSG:4326','EPSG:3857')),csno:f.csno[ii],car_no:f.car_no[ii],call_no:f.call_no[ii],dir0:f.dir0[ii],msg_date:f.msg_date[ii]});
+            jj.setId(imei[ii]);
+            carpointsrc.addFeature(jj);
+          };
+        };
+      };
+      setTimeout(carLocation,1000);
+    });
+  };
+};
+
+function init() {
+  caseLocation(); carLocation();
+};
+
+init();
+
+
+</script>
+</body>
+</html>
